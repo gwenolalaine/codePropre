@@ -1,32 +1,20 @@
 package ex6;
 
-public class Conteneur {
+import java.util.ArrayList;
+import java.util.List;
 
-	private boolean readOnly;
-	
-	private Object[] elements;
-	private int size;
+public class Conteneur {
+	private List<Object> elements = new ArrayList<>();
 	
 	public void add(Object element){
-		if (!readOnly){
-			int newSize = size+1;
-			if (newSize > size){
-				Object[] newElements = new Object[size+10];
-				for (int i=0; i<size; i++){
-					newElements[i] = elements[i];
-				}
-				elements = newElements;
-			}
-			elements[size++]=element;
-		}
-		
+		elements.add(element);
 	}
 	
 	public Object getContent(int i){
-		return elements[i];
+		return elements.get(i);
 	}
 	
 	public int getSize(){
-		return size;
+		return elements.size();
 	}
 }
